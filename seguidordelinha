@@ -1,0 +1,52 @@
+//MOTOR 1 ESQUERDA
+const int motor2H = 10; //Controle de acionamento do motor
+const int motor2L = 9; //Controle de acionamento do motor
+
+//MOTOR 2 DIREITA
+const int motor1H = 5; //Controle de acionamento do motor
+const int motor1L = 6; //Controle de acionamento do motor
+
+const int Dsensor1 = 12;
+const int Dsensor2 = 3;
+int valor1 = 0;
+int valor2 = 0;
+
+   
+void setup()  
+{  
+  //Define os pinos como saida  
+  pinMode(motor1H, OUTPUT);  
+  pinMode(motor1L, OUTPUT);
+  pinMode(motor2H, OUTPUT);
+  pinMode(motor2L, OUTPUT);
+  pinMode(Dsensor1, INPUT); //DEFINE O PINO COMO ENTRADA
+
+  pinMode(Dsensor2, INPUT); //DEFINE O PINO COMO ENTRADA
+}  
+   
+void loop()  
+{  
+  valor1 = digitalRead(Dsensor1);//Armazena o valor digital de IRpin em valorLido
+  valor2 = digitalRead(Dsensor2);//Armazena o valor digital de IRpin em valorLido
+  if (valor1 == LOW && valor2 == LOW) {//Se valor lido for igual a LOW
+    analogWrite(motor2H, 125);  
+    digitalWrite(motor2L, LOW);
+    digitalWrite(motor1H, HIGH);  
+    analogWrite(motor1L, 130);
+  } if (valor1 == HIGH && valor2 == LOW) {//Se valor lido for igual a LOW
+    analogWrite(motor2H, LOW);  
+    digitalWrite(motor2L, LOW);
+    digitalWrite(motor1H, HIGH);  
+    analogWrite(motor1L, 130);
+  } if (valor1 == LOW && valor2 == HIGH) {//Se valor lido for igual a LOW
+    analogWrite(motor2H, 125);  
+    digitalWrite(motor2L, LOW);
+    digitalWrite(motor1H, LOW);  
+    analogWrite(motor1L, LOW);
+  } if (valor1 == HIGH && valor2 == HIGH) {//Se valor lido for igual a LOW
+    analogWrite(motor2H, LOW);  
+    digitalWrite(motor2L, LOW);
+    digitalWrite(motor1H, LOW);  
+    analogWrite(motor1L, LOW);
+  }
+}
