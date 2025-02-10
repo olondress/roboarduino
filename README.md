@@ -10,8 +10,6 @@ Este repositório contém o código para um robô baseado em Arduino com três f
 - [Seguidor de Linha](#seguidor-de-linha)
 - [Controle por Bluetooth](#controle-por-bluetooth)
 - [Uso](#uso)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ## Requisitos de Hardware
 1. Arduino Uno
